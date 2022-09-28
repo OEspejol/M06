@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>JavaScript</h2>
+<br>
+<p>Nombre:</p>
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+  <input type="text" name="fname">
+  <input type="submit" value="Submit">
+</form>
+
+<br>
+<p>Pon un numero entre 1 y 10</p>
+
+<input id="numb">
+
+<button type="button" onclick="myFunction()">Submit</button>
+
+<p id="demo">dfjksfsdghk
+fgdkfgdkfgdfgf
+dfgjh</p>
+<br>
+<p>Checkbox:</p> 
+<input type="checkbox" id="myCheck">
+<button onclick="check()">Check Checkbox</button>
+<button onclick="uncheck()">Uncheck Checkbox</button>
+<br>
+<p>Radiobutton</p>
+<input type="radio" name="status" value="interesado" id="interesado"> <label for="interesado">Estoy interesado</label> 
+<br>
+<input type="radio" name="status" value="indeciso" id="indeciso"> <label for="indeciso">Estoy indeciso</label> 
+<br>
+<input type="radio" name="status" value="no_interesado" id="no_interesado"> <label for="no_interesado">No me interesa</label> 
+<script>
+function validateForm() {
+  let x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+
+function myFunction() {
+  // Get the value of the input field with id="numb"
+  let x = document.getElementById("numb").value;
+  // If x is Not a Number or less than one or greater than 10
+  let text;
+  if (isNaN(x) || x < 1 || x > 10) {
+    text = "Input not valid";
+  } else {
+    text = "Input OK";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+
+function check() {
+  document.getElementById("myCheck").checked = true;
+}
+
+function uncheck() {
+  document.getElementById("myCheck").checked = false;
+}
+valorActivo = document.querySelector('input[name="status"]:checked').value;
+
+        document.getElementById('mostrar').addEventListener('click', function() {
+            // let valorActivo = document.querySelector('input[name="status"]:checked').value; // Esto tiene el problema de que puede que un elemento no esté activo, entonces no se podría acceder al value de un null, lo que sería un error en tiempo de ejecución
+            let elementoActivo = document.querySelector('input[name="status"]:checked');
+            if(elementoActivo) {
+                alert(elementoActivo.value);
+            } else {
+                alert('No hay ninún elemento activo');
+            }
+        });
+
+        document.getElementById('setear').addEventListener('click', function() {
+            setRadio('status', 'interesado')
+        });
+
+        function setRadio(name, value) {
+            document.querySelectorAll(`input[name="${name}"]`).forEach(element => {
+                if(element.value === value) {
+                    element.checked = true;
+                }
+            });
+        }
+</script>
+</body>
+</html>
