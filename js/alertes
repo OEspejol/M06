@@ -1,0 +1,15 @@
+<html>
+<body>
+
+<div><h1 >Texto inicial</h1>
+<h2 id="demo">texto inicial</h2>
+<script>
+    let persona = prompt("Pon tu nombre", "Harry Potter");
+		if (persona != null) {
+  	window.alert("Hola " + persona + "! Como estas ?");
+  	confirm("Si eres tu pulsa acepto. ");
+}
+</script>
+</div>
+</body>
+</html>
