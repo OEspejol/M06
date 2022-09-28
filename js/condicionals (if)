@@ -1,0 +1,9 @@
+const edad = 70;
+
+if (edad >= 18 && edad <= 30) {
+  console.log("Eres un adulto.");
+} else if (edad > 60) {
+  console.log("Estas un poco mayor");
+} else {
+  console.log("Eres un ninio.");
+}
