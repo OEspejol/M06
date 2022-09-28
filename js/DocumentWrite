@@ -1,0 +1,12 @@
+<html>
+<body>
+
+<div><h1 id="cambio">Texto inicial</h1><h2>
+texto inicial
+</h2>
+<script>
+		document.write("Pedrito")
+</script>
+</div>
+</body>
+</html>
