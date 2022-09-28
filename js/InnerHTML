@@ -1,0 +1,13 @@
+<html>
+<body>
+
+<div><h1 id="cambio">Texto inicial</h1><h2>
+texto inicial
+</h2>
+<script>
+    var element = document.getElementById("cambio");
+    element.innerHTML = "Texto final"; 
+</script>
+</div>
+</body>
+</html>
