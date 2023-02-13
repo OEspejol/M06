@@ -8,40 +8,54 @@
   <p id="ejemplo1"></p>
   <p id="ejemplo2"></p>
   <p id="ejemplo3"></p>
-  <ul id="listaTareas">
-  </ul>
-  <button id="botonAgregarTarea">Agregar tarea</button>
-  <p id="mostrarTarea"></p>
+  <img src="https://static.nationalgeographic.es/files/styles/image_3200/public/01-wildlife-watch-elephant-hides-africa.jpg?w=1900&h=1256" id="image" onclick="handleClick(event)">
+  <button id="button" onclick="handleClick(event)">Click me</button>
   <script>
+    function handleClick(event) {
+      if (event.target.id === "image") {
+        console.log("Has pulsado la imagen");
+      } else if (event.target.id === "button") {
+        console.log("Has pulsado el botón");
+      }
+    }
+  </script>
+
+  <h2>Llista de tasques</h2>
+  <ul id="taskList">
+  </ul>
+  <button id="addTaskButton">Afegir tasca</button>
+  <script>
+    // Función que toma una función callback como parámetro
     function miFuncion(callback) {
+      // Código de la función
       document.getElementById("ejemplo1").innerHTML = "Hola, soy la función principal";
       callback();
     }
 
+    // Función callback anónima
     miFuncion(function() {
       document.getElementById("ejemplo2").innerHTML = "Hola, soy una función callback anónima";
     });
 
+    // Función callback con nombre
     function miFuncionCallback() {
       document.getElementById("ejemplo3").innerHTML = "Hola, soy una función callback con nombre";
     }
     miFuncion(miFuncionCallback);
 
-    let botonAgregarTarea = document.getElementById("botonAgregarTarea");
-    let listaTareas = document.getElementById("listaTareas");
-    let mostrarTarea = document.getElementById("mostrarTarea");
-    let contadorTareas = 0;
+    // Agregar tarea a la lista
+    const taskList = document.getElementById("taskList");
+    const addTaskButton = document.getElementById("addTaskButton");
+    let taskCounter = 0;
 
-    botonAgregarTarea.addEventListener("click", function() {
-      contadorTareas++;
-      let tarea = document.createElement("li");
-      tarea.innerHTML = "Tarea " + contadorTareas;
-      tarea.setAttribute("id", "tarea" + contadorTareas);
-      listaTareas.appendChild(tarea);
-
-      tarea.addEventListener("click", function() {
-        mostrarTarea.innerHTML = "Has seleccionado la tarea " + tarea.innerHTML;
+    addTaskButton.addEventListener("click", function() {
+      taskCounter++;
+      const newTask = document.createElement("li");
+      newTask.innerHTML = "Tasca " + taskCounter;
+      newTask.addEventListener("click", function() {
+        console.log("Has clicat en la tasca: " + this.innerHTML);
       });
+      taskList.appendChild(newTask);
     });
   </script>
 </body>
