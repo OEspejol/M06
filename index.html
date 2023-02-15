@@ -11,7 +11,7 @@
   <script>
     function miFuncion(callback) {
       document.getElementById("ejemplo1").innerHTML = "Hola, soy la función principal";
-      callback();
+      setTimeout(callback, 2000); 
     }
 
     miFuncion(function() {
@@ -50,6 +50,16 @@
       });
       listaTareas.appendChild(tarea);
     });
+  </script>
+  <h2>Ejemplo de setInterval()</h2>
+  <p id="contador"></p>
+  <script>
+    let count = 0;
+    let contador = document.getElementById("contador");
+    setInterval(function() {
+      count++;
+      contador.innerHTML = "Contador: " + count;
+    }, 1000);
   </script>
 </body>
 </html>
