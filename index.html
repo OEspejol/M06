@@ -9,19 +9,15 @@
   <p id="ejemplo2"></p>
   <p id="ejemplo3"></p>
   <script>
-    // Función que toma una función callback como parámetro
     function miFuncion(callback) {
-      // Código de la función
       document.getElementById("ejemplo1").innerHTML = "Hola, soy la función principal";
       callback();
     }
 
-    // Función callback anónima
     miFuncion(function() {
       document.getElementById("ejemplo2").innerHTML = "Hola, soy una función callback anónima";
     });
 
-    // Función callback con nombre
     function miFuncionCallback() {
       document.getElementById("ejemplo3").innerHTML = "Hola, soy una función callback con nombre";
     }
@@ -51,7 +47,6 @@
       tarea.innerHTML = "Nueva tarea";
       tarea.addEventListener("click", function() {
         console.log("Has pulsado una tarea");
-        // Aquí podrías mostrar el contenido de la tarea en otro elemento del DOM
       });
       listaTareas.appendChild(tarea);
     });
